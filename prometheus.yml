@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 1m
+
+scrape_configs:
+  - honor_labels: true
+    job_name: app
+    metrics_path: /federate
+    params:
+      match[]: ['{__name__=~".+"}']
+    static_configs:
+    - labels: { cluster: app }
+    - targets: ["10.207.153.117:32090"]
+  - job_name: "node"
+    static_configs:
+    - targets: ["node-exporter:9100"]
