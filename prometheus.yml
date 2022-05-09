@@ -11,6 +11,6 @@ scrape_configs:
     static_configs:
     - labels: { cluster: app }
     - targets: ["192.168.99.101:32090"]
-  - job_name: "node"
+  - job_name: "vm-node-exporter"
     static_configs:
     - targets: ["node-exporter:9100"]
