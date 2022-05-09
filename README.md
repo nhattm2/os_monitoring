@@ -9,4 +9,7 @@ kubectl apply -f manifests/
 cd ..
 kubectl apply -f nodeportconfig/
 
+## node exporter dashboard
+https://grafana.com/grafana/dashboards/1860
+
 ```
