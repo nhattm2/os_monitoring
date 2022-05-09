@@ -1,10 +1,10 @@
 global:
-  scrape_interval: 1m
+  scrape_interval: 10s
 
 scrape_configs:
   - honor_labels: true
     job_name: app
-    scrape_interval: 10s
+    scrape_interval: 8s
     metrics_path: /federate
     params:
       match[]: ['{__name__=~".+"}']
@@ -14,3 +14,8 @@ scrape_configs:
   - job_name: "vm-node-exporter"
     static_configs:
     - targets: ["node-exporter:9100"]
+alerting:
+  alertmanagers:
+    - scheme: http
+      static_configs:
+        - targets: [ 'alertmanager:9093' ]
