@@ -10,7 +10,7 @@ scrape_configs:
       match[]: ['{__name__=~".+"}']
     static_configs:
     - labels: { cluster: app }
-    - targets: ["192.168.59.101:32090"]
+    - targets: ["192.168.99.101:32090"]
   - job_name: "node"
     static_configs:
     - targets: ["node-exporter:9100"]
