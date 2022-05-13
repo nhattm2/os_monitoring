@@ -1,0 +1,10 @@
+groups:
+- name: node
+  rules:
+  - alert: NodeDown
+    expr: up{job="node_exporter"} == 0
+    for: 1s
+    labels:
+      severity: critical
+    annotations:
+      summary: "Node {{ $labels.instance }} down"

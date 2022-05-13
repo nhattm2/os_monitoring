@@ -41,6 +41,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./alertrules:/etc/prometheus/alertrules
       - prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -56,9 +57,12 @@ services:
       - monitoring
   alertmanager:
     image: prom/alertmanager:v0.23.0
+    container_name: alertmanager
     restart: unless-stopped
     ports:
       - "9093:9093"
     volumes:
       - "./alertmanager:/config"
     command: --config.file=/config/alertmanager.yml --log.level=debug
+    networks:
+      - monitoring

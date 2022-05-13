@@ -9,7 +9,9 @@ receivers:
     email_configs:
       - smarthost: 'smtp.gmail.com:465'
         auth_username: 'skylinedevops@gmail.com'
+        auth_identity: 'skylinedevops@gmail.com'
         auth_password: "password"
+        require_tls: false
         from: 'skylinedevops@gmail.com'
         to: 'nhattm94@gmail.com'
 
